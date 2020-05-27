@@ -39,9 +39,8 @@ export function createClient(
     throw new Error('region required')
   }
 
-  aws.config.update(awsConfig)
-  const athena = new aws.Athena({ apiVersion: '2017-05-18' })
-  const s3 = new aws.S3({ apiVersion: '2006-03-01' })
+  const athena = new aws.Athena({ apiVersion: '2017-05-18', ...awsConfig })
+  const s3 = new aws.S3({ apiVersion: '2006-03-01', ...awsConfig })
   const request = new AthenaRequest(athena, s3)
   return new AthenaClient(request, clientConfig)
 }
