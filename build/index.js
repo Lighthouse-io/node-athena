@@ -23,9 +23,8 @@ function createClient(clientConfig, awsConfig) {
         awsConfig.region.length === 0) {
         throw new Error('region required');
     }
-    aws.config.update(awsConfig);
-    const athena = new aws.Athena({ apiVersion: '2017-05-18' });
-    const s3 = new aws.S3({ apiVersion: '2006-03-01' });
+    const athena = new aws.Athena(Object.assign({ apiVersion: '2017-05-18' }, awsConfig));
+    const s3 = new aws.S3(Object.assign({ apiVersion: '2006-03-01' }, awsConfig));
     const request = new request_1.AthenaRequest(athena, s3);
     return new client_1.AthenaClient(request, clientConfig);
 }
