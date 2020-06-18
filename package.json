@@ -1,5 +1,5 @@
 {
-  "name": "athena-client",
+  "name": "@lighthouse/athena",
   "version": "2.5.1",
   "description": "a nodejs simple aws athena client",
   "homepage": "https://github.com/Lighthouse-io/node-athena",
